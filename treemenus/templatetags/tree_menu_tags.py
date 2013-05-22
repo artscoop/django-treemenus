@@ -48,11 +48,15 @@ class ReverseNamedURLNode(Node):
         from django.template import TOKEN_BLOCK, Token
 
         resolved_named_url = self.named_url.resolve(context)
+        # edit hts SpectralAngel
         if django.VERSION >= (1, 3):
-            contents = u'url "%s"' % resolved_named_url
+            tokens = resolved_named_url.split(' ')
+            base = tokens[0]
+            args = tokens[1:]
+            contents = u'url "{0}" {1}'.format(base, ' '.join(args))
         else:
-            contents = u'url %s' % resolved_named_url
-
+            contents = u'url {0}'.format(resolved_named_url)
+        ## edit
         urlNode = url(self.parser, Token(token_type=TOKEN_BLOCK, contents=contents))
         return urlNode.render(context)
 
