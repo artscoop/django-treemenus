@@ -13,6 +13,9 @@ class MenuItem(models.Model):
     level = models.IntegerField(ugettext_lazy('level'), default=0, editable=False)
     rank = models.IntegerField(ugettext_lazy('rank'), default=0, editable=False)
     menu = models.ForeignKey('Menu', related_name='contained_items', verbose_name=ugettext_lazy('menu'), null=True, blank=True, editable=False)
+    markup_id = models.CharField(ugettext_lazy('Name'), max_length=24, blank=True)
+    markup_class = models.CharField(ugettext_lazy('CSS classes'), max_length=32, blank=True)
+    markup_anchor = models.CharField(ugettext_lazy('HTML anchor'), max_length=240, blank=True)
 
     def __unicode__(self):
         return self.caption
