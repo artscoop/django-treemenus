@@ -100,6 +100,9 @@ class MenuItem(models.Model):
 
     def has_children(self):
         return self.children().count() > 0
+        
+    def get_anchor(self):
+        return self.markup_anchor % {'caption':ugettext_lazy(self.caption), 'level':self.level}
 
 
 class Menu(models.Model):
