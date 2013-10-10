@@ -3,6 +3,7 @@ from itertools import chain
 from django.db import models
 from django.utils.translation import ugettext_lazy
 from django.utils.translation import ugettext as _
+from django.utils.safestring import mark_safe 
 
 
 class MenuItem(models.Model):
@@ -102,7 +103,7 @@ class MenuItem(models.Model):
         return self.children().count() > 0
         
     def get_anchor(self):
-        return self.markup_anchor % {'caption':ugettext_lazy(self.caption), 'level':self.level}
+        return mark_safe(self.markup_anchor % {'caption':ugettext_lazy(self.caption), 'level':self.level})
 
 
 class Menu(models.Model):
