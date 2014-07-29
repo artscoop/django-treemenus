@@ -2,7 +2,6 @@ from itertools import chain
 
 from django.db import models
 from django.utils.translation import ugettext_lazy
-from django.utils.translation import ugettext as _
 from django.utils.safestring import mark_safe 
 
 
@@ -131,5 +130,5 @@ class Menu(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = _('menu')
-        verbose_name_plural = _('menus')
+        verbose_name = ugettext_lazy('menu')
+        verbose_name_plural = ugettext_lazy('menus')
