@@ -45,7 +45,7 @@ class ReverseNamedURLNode(Node):
         self.parser = parser
 
     def render(self, context):
-        from django.template import TOKEN_BLOCK, Token
+        from django.template.base import TOKEN_BLOCK, Token
 
         resolved_named_url = self.named_url.resolve(context)
         # edit hts SpectralAngel
