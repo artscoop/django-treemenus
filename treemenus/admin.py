@@ -112,10 +112,10 @@ class MenuAdmin(admin.ModelAdmin):
             # django admin.
             from django.views.generic import RedirectView
             my_urls += patterns('',
-                url(r'^item_changelist/$', RedirectView.as_view(url='/'), name='treemenus_menuitem_changelist'),
-                url(r'^item_add/$', RedirectView.as_view(url='/'), name='treemenus_menuitem_add'),
-                url(r'^item_history/(?P<pk>[-\w]+)/$', RedirectView.as_view(url='/'), name='treemenus_menuitem_history'),
-                url(r'^item_delete/(?P<pk>[-\w]+)/$', RedirectView.as_view(url='/'), name='treemenus_menuitem_delete'),
+                url(r'^item_changelist/$', RedirectView.as_view(url='/', permanent=False), name='treemenus_menuitem_changelist'),
+                url(r'^item_add/$', RedirectView.as_view(url='/', permanent=False), name='treemenus_menuitem_add'),
+                url(r'^item_history/(?P<pk>[-\w]+)/$', RedirectView.as_view(url='/', permanent=False), name='treemenus_menuitem_history'),
+                url(r'^item_delete/(?P<pk>[-\w]+)/$', RedirectView.as_view(url='/', permanent=False), name='treemenus_menuitem_delete'),
             )
         return my_urls + urls
 
