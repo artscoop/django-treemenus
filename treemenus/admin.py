@@ -11,7 +11,6 @@ from django.core.exceptions import PermissionDenied
 from django.http import HttpResponseRedirect, Http404
 from django.utils.html import escape
 from django.utils.translation import ugettext as _
-from django.utils.encoding import force_unicode
 
 from treemenus.models import Menu, MenuItem
 from treemenus.utils import get_parent_choices, MenuItemChoiceField, move_item_or_clean_ranks
@@ -164,9 +163,9 @@ class MenuAdmin(admin.ModelAdmin):
 
         if menu_item.rank < menu_item.siblings().count():
             move_item_or_clean_ranks(menu_item, 1)
-            msg = _('The menu item "%s" was moved successfully.') % force_unicode(menu_item)
+            msg = _('The menu item "{}" was moved successfully.').format(menu_item)
         else:
-            msg = _('The menu item "%s" is not allowed to move down.') % force_unicode(menu_item)
+            msg = _('The menu item "{}" is not allowed to move down.').format(menu_item)
 
         if django.VERSION >= (1, 4):
             self.message_user(request, message=msg)
