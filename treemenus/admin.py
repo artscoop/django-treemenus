@@ -180,9 +180,9 @@ class MenuAdmin(admin.ModelAdmin):
 
         if menu_item.rank > 0:
             move_item_or_clean_ranks(menu_item, -1)
-            msg = _('The menu item "%s" was moved successfully.') % force_unicode(menu_item)
+            msg = _('The menu item "%s" was moved successfully.').format(menu_item)
         else:
-            msg = _('The menu item "%s" is not allowed to move up.') % force_unicode(menu_item)
+            msg = _('The menu item "%s" is not allowed to move up.').format(menu_item)
 
         if django.VERSION >= (1, 4):
             self.message_user(request, message=msg)
