@@ -6,7 +6,10 @@ try:
 except ImportError:  # Django < 1.4
     from django.conf.urls.defaults import patterns, url
 from django.contrib import admin
-from django.contrib.admin.util import unquote
+try:
+    from django.contrib.admin.util import unquote
+except ImportError:
+    from django.contrib.admin.utils import unquote
 from django.core.exceptions import PermissionDenied
 from django.http import HttpResponseRedirect, Http404
 from django.utils.html import escape
