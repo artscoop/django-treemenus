@@ -10,7 +10,7 @@ tree-structured menus and should be enough for a lot of projects.
 It is also easily extendable if you need to add some special behaviour to
 your menu items.
 
-django-treemenus works with Django 1.0 and above and with python 2.5 and above.
+django-treemenus works with Django 1.8 and above and with python 2.7 and above.
 
 .. _Django: http://www.djangoproject.com/
 
