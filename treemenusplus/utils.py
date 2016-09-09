@@ -1,7 +1,7 @@
 from django.utils.safestring import mark_safe
 from django.forms import ChoiceField
 
-from treemenus.models import MenuItem
+from treemenusplus.models import MenuItem
 
 
 class MenuItemChoiceField(ChoiceField):

@@ -3,8 +3,8 @@ from django import template
 from django.template.defaulttags import url
 from django.template import Node, TemplateSyntaxError
 
-from treemenus.models import Menu, MenuItem
-from treemenus.config import APP_LABEL
+from treemenusplus.models import Menu, MenuItem
+from treemenusplus.config import APP_LABEL
 
 
 register = template.Library()
@@ -14,7 +14,7 @@ register = template.Library()
 def get_treemenus_static_prefix():
     if django.VERSION >= (1, 3):
         from django.templatetags.static import PrefixNode
-        return PrefixNode.handle_simple("STATIC_URL") + 'img/treemenus'
+        return PrefixNode.handle_simple("STATIC_URL") + 'img/treemenusplus'
     else:
         from django.contrib.admin.templatetags.adminmedia import admin_media_prefix
         return admin_media_prefix() + 'img/admin/'

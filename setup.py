@@ -1,18 +1,18 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='django-treemenus',
+    name='django-treemenus-plus',
     version='0.8.8-pre',
     description='Tree-structured menuing application for Django.',
-    author='Julien Phalip',
+    author='Steve Kossouho/Julien Phalip',
     author_email='julien@julienphalip.com',
-    url='http://github.com/jphalip/django-treemenus/',
+    url='http://github.com/artscoop/django-treemenus-plus/',
     packages=find_packages(),
     package_data={
-        'treemenus': [
-            'static/img/treemenus/*.gif',
-            'templates/admin/treemenus/menu/*.html',
-            'templates/admin/treemenus/menuitem/*.html',
+        'treemenusplus': [
+            'static/img/treemenusplus/*.gif',
+            'templates/admin/treemenusplus/menu/*.html',
+            'templates/admin/treemenusplus/menuitem/*.html',
         ]
     },
     requires=['django'],

@@ -13,10 +13,10 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'treemenus',
+    'treemenusplus',
 ]
 
-ROOT_URLCONF = 'treemenus.tests.urls'
+ROOT_URLCONF = 'treemenusplus.tests.urls'
 
 SECRET_KEY = 'Shush... Tell no one.'
 

@@ -20,8 +20,8 @@ from django.http import HttpResponseRedirect, Http404
 from django.utils.html import escape
 from django.utils.translation import ugettext as _
 
-from treemenus.models import Menu, MenuItem
-from treemenus.utils import get_parent_choices, MenuItemChoiceField, move_item_or_clean_ranks
+from treemenusplus.models import Menu, MenuItem
+from treemenusplus.utils import get_parent_choices, MenuItemChoiceField, move_item_or_clean_ranks
 
 
 class MenuItemAdmin(admin.ModelAdmin):
