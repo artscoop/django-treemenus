@@ -15,6 +15,7 @@ setup(
             'templates/admin/treemenus/menuitem/*.html',
         ]
     },
+    requires=['django'],
     zip_safe=False,
     classifiers=[
         'Development Status :: 4 - Beta',

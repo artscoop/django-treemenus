@@ -2,21 +2,25 @@ from itertools import chain
 
 from django.db import models
 from django.utils.translation import ugettext_lazy
-from django.utils.safestring import mark_safe 
+from django.utils.safestring import mark_safe
 
 
 class MenuItem(models.Model):
+    """ Menu item object """
+
+    # Fields
     parent = models.ForeignKey('self', verbose_name=ugettext_lazy('parent'), null=True, blank=True)
     caption = models.CharField(ugettext_lazy('caption'), max_length=50)
     url = models.CharField(ugettext_lazy('URL'), max_length=200, blank=True)
     named_url = models.CharField(ugettext_lazy('named URL'), max_length=200, blank=True)
-    level = models.IntegerField(ugettext_lazy('level'), default=0, editable=False)
-    rank = models.IntegerField(ugettext_lazy('rank'), default=0, editable=False)
+    level = models.IntegerField(ugettext_lazy('level'), default=0, editable=False)  # Nesting level
+    rank = models.IntegerField(ugettext_lazy('rank'), default=0, editable=False)  # Ordering
     menu = models.ForeignKey('Menu', related_name='contained_items', verbose_name=ugettext_lazy('menu'), null=True, blank=True, editable=False)
     markup_id = models.CharField(ugettext_lazy('Name'), max_length=24, blank=True)
     markup_class = models.CharField(ugettext_lazy('CSS classes'), max_length=32, blank=True)
     markup_anchor = models.CharField(ugettext_lazy('HTML anchor'), max_length=240, blank=True)
 
+    # Overrides
     def __unicode__(self):
         return self.caption
 
@@ -100,7 +104,7 @@ class MenuItem(models.Model):
 
     def has_children(self):
         return self.children().count() > 0
-        
+
     def get_anchor(self):
         return mark_safe(self.markup_anchor % {'caption':ugettext_lazy(self.caption), 'level':self.level}) if self.markup_anchor else ugettext_lazy(self.caption)
 
@@ -112,7 +116,7 @@ class Menu(models.Model):
     def save(self, force_insert=False, **kwargs):
         if not self.root_item:
             root_item = MenuItem()
-            root_item.caption = _('root')
+            root_item.caption = ugettext_lazy('root')
             if not self.pk:  # If creating a new object (i.e does not have a pk yet)
                 super(Menu, self).save(force_insert, **kwargs)  # Save, so that it gets a pk
                 force_insert = False
