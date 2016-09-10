@@ -75,6 +75,8 @@ class MenuItemAdmin(admin.ModelAdmin):
 
 class MenuAdmin(admin.ModelAdmin):
     menu_item_admin_class = MenuItemAdmin
+    list_display = ['pk', 'name']
+    search_fields = ['name']
 
     def __call__(self, request, url):
         ''' DEPRECATED!! More recent versions of Django use the get_urls method instead.
