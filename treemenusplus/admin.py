@@ -5,9 +5,9 @@ import django
 
 
 try:
-    from django.conf.urls import patterns, url
+    from django.conf.urls import *
 except ImportError:  # Django < 1.4
-    from django.conf.urls.defaults import patterns, url
+    from django.conf.urls.defaults import *
 from django.contrib import admin
 
 
